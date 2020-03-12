@@ -7,32 +7,50 @@ public class main {
 
         Scanner input = new Scanner(System.in);
         String[] words = {"dog", "cat", "house", "animal", "apple", "pizza", "computer", "monitor", "mouse", "keyboard"};
-        int rnd = new Random().nextInt(10);
+        int rnd = new Random().nextInt(words.length);
         int lengthOfWord = words[rnd].length();
         String wordToGuess = words[rnd];
-        String hiddenWord = "";
+        char[] hiddenWord = new  char[40];
+        char[] charWord = new char[20];
         char userGuess;
-        int numOfGuesses;
+        int numOfGuesses = 8;
+        final int MAX_GUESSES = 0;
 
         System.out.println("Welcome to hangman");
+        System.out.println("Your word to guess is: ");
 
         for (int i = 0; i < lengthOfWord; i++) {
-            hiddenWord = hiddenWord + "_ ";
+            charWord[i] = wordToGuess.charAt(i);
+            hiddenWord[i] = '_';
+            System.out.print(hiddenWord[i] + " ");
         }
 
-        System.out.println("Your word to guess is " + hiddenWord + wordToGuess);
-        System.out.println("Enter a letter");
-        userGuess = input.next().charAt(0);
+        while (numOfGuesses != MAX_GUESSES && hiddenWord != wordToGuess.toCharArray()) {
+            System.out.println("\nEnter a letter");
+            userGuess = input.next().charAt(0);
 
-        for (int i = 0; i < lengthOfWord; i++) {
-            if (wordToGuess.substring(i, i + 1).equals(userGuess)) {
-                hiddenWord = hiddenWord.replace('_',userGuess);
+            for (int i = 0; i < lengthOfWord; i++) {
+                if (charWord[i] == userGuess) {
+                    hiddenWord[i] = userGuess;
+                    numOfGuesses++;
+                }
+            }
+            for (int i = 0; i < lengthOfWord; i++) {
+                System.out.print(hiddenWord[i] + " ");
+            }
+
+            numOfGuesses--;
+
+            if (numOfGuesses == MAX_GUESSES) {
+                System.out.println("Sorry but you suck at this");
+                System.out.println("The word was " + wordToGuess);
+            }
+            else if (hiddenWord == wordToGuess.toCharArray()) {
+                System.out.println("Congratulations you got it");
+            }
+            else {
+                System.out.println("You have " + numOfGuesses + " guesses left");
             }
         }
-
-        if (wordToGuess.substring(0, 1).equals(userGuess)) {
-            hiddenWord = hiddenWord.replace('_',userGuess);
-        }
-        System.out.println(hiddenWord);
     }
 }
