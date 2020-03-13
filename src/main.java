@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,7 +17,7 @@ public class main {
 
         System.out.println("Welcome to hangman");
         System.out.println("Enter your name");
-        name = input.next();
+        name = input.nextLine();
 
         while (continueToPlay == 'y') {
             int rnd = new Random().nextInt(words.length);
