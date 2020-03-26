@@ -1,12 +1,12 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class main {
+public class Main {
 
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        final int MAX_GUESSES = 0;
+        final int MAX_GUESSES = 8;
         String[] words = {"dog", "cat", "house", "animal", "apple", "pizza", "computer", "monitor", "mouse", "keyboard"};
         char[] hiddenWord = new  char[40];
         char[] charWord = new char[20];
@@ -21,11 +21,11 @@ public class main {
 
         while (continueToPlay == 'y') {
             int rnd = new Random().nextInt(words.length);
-            int lengthOfWord = words[rnd].length();
-            int numOfGuesses = 8;
+            String wordToGuess = words[rnd];
+            int lengthOfWord = wordToGuess.length();
+            int numOfGuesses = 0;
             int correct = 0;
             int count = 0;
-            String wordToGuess = words[rnd];
 
             System.out.println("\nYour word to guess is: ");
             for (int i = 0; i < lengthOfWord; i++) {
@@ -34,7 +34,10 @@ public class main {
                 System.out.print(hiddenWord[i] + " ");
             }
 
-            while (numOfGuesses != MAX_GUESSES && hiddenWord != wordToGuess.toCharArray()) {
+            System.out.println();
+
+            while (numOfGuesses != MAX_GUESSES) {
+                DrawMan.main(numOfGuesses);
                 System.out.println("\nEnter a letter");
                 userGuess = input.next().charAt(0);
 
@@ -42,21 +45,19 @@ public class main {
                     if (charWord[i] == userGuess) {
                         hiddenWord[i] = userGuess;
                         if (count == 0) {
-                            numOfGuesses++;
+                            numOfGuesses--;
                             count++;
                         }
                     }
-                }
-                for (int i = 0; i < lengthOfWord; i++) {
+
                     System.out.print(hiddenWord[i] + " ");
-                }
-                for (int i = 0; i < lengthOfWord; i++) {
+
                     if (hiddenWord[i] == charWord[i]) {
                         correct++;
                     }
                 }
 
-                numOfGuesses--;
+                numOfGuesses++;
                 count = 0;
 
                 if (correct == lengthOfWord) {
@@ -66,8 +67,9 @@ public class main {
                 } else if (numOfGuesses == MAX_GUESSES) {
                     System.out.println("\nSorry but you suck at this");
                     System.out.println("The word was " + wordToGuess);
+                    DrawMan.youLose();
                 } else {
-                    System.out.println("\nYou have " + numOfGuesses + " guesses left");
+                    System.out.println("\nYou have " + (MAX_GUESSES-numOfGuesses) + " guesses left");
                 }
 
                 correct = 0;
