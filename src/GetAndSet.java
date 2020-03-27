@@ -2,7 +2,7 @@ public class GetAndSet {
 
     private int losses;
     private int wins;
-    private int missedLetters;
+    private String name;
 
     public int getLosses() {
         return losses;
@@ -18,10 +18,10 @@ public class GetAndSet {
         this.wins = wins;
     }
 
-    public int getMissedLetters() {
-        return missedLetters;
+    public String getName() {
+        return name;
     }
-    public void setMissedLetters(int missedLetters) {
-        this.missedLetters = missedLetters;
+    public void setName(String name) {
+        this.name = name;
     }
 }

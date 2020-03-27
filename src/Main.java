@@ -7,27 +7,25 @@ import java.nio.channels.FileChannel;
 import java.nio.ByteBuffer;
 import static java.nio.file.StandardOpenOption.*;
 
-
 public class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         final int MAX_GUESSES = 8;
-        String[] words = {"dog", "cat", "house", "animal", "apple", "pizza", "computer", "monitor", "mouse", "keyboard"};
+        String[] words = {"dog", "cat", "house", "animal", "apple", "pizza", "computer", "monitor", "mouse", "keyboard", "coronavirus", "bruh", "loser", "winner", "help", "corn", "food"};
         char[] hiddenWord = new  char[40];
         char[] charWord = new char[20];
         char userGuess;
         char continueToPlay = 'y';
-        int wins = 0;
-        int losses = 0;
         String name;
         String delimiter = "|";
-        Path score = Paths.get("C:\\Users\\d4wso\\Desktop\\Hangman\\src\\Score");
+        Path scoreTxt = Paths.get("C:\\Users\\d4wso\\Desktop\\Hangman\\src\\Score");
         FileChannel fcIN = null;
+        GetAndSet stuff = new GetAndSet();
 
         System.out.println("Welcome to hangman");
         System.out.println("Enter your name");
-        name = input.nextLine();
+        stuff.setName(input.nextLine());
 
         while (continueToPlay == 'y') {
             int rnd = new Random().nextInt(words.length);
@@ -71,13 +69,13 @@ public class Main {
                 count = 0;
 
                 if (correct == lengthOfWord) {
-                    System.out.println("\nCongratulations " + name + " you won");
-                    wins++;
+                    System.out.println("\nCongratulations " + stuff.getName() + " you won");
+                    stuff.setWins(stuff.getWins() + 1);
                     break;
                 } else if (numOfGuesses == MAX_GUESSES) {
                     System.out.println("\nSorry but you suck at this");
                     System.out.println("The word was " + wordToGuess);
-                    losses++;
+                    stuff.setLosses(stuff.getLosses() + 1);
                     DrawMan.youLose();
                 } else {
                     System.out.println("\nYou have " + (MAX_GUESSES-numOfGuesses) + " guesses left");
@@ -90,11 +88,9 @@ public class Main {
             continueToPlay = input.next().charAt(0);
         }
 
-        System.out.println("Wins " + wins + " times.");
-
         try {
-            fcIN = (FileChannel) Files.newByteChannel(score, CREATE, WRITE);
-            String s = "Name: " + name + " " + delimiter + " Wins: " + wins + " " + delimiter + " Losses: " + losses;
+            fcIN = (FileChannel) Files.newByteChannel(scoreTxt, CREATE, WRITE);
+            String s = "Name: " + stuff.getName() + " " + delimiter + " Wins: " + stuff.getWins() + " " + delimiter + " Losses: " + stuff.getLosses();
             byte[] data = s.getBytes();
             ByteBuffer buffer = ByteBuffer.wrap(data);
             fcIN.write(buffer);
