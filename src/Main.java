@@ -1,10 +1,16 @@
 import java.util.Random;
 import java.util.Scanner;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.nio.channels.FileChannel;
+import java.nio.ByteBuffer;
+import static java.nio.file.StandardOpenOption.*;
+
 
 public class Main {
 
     public static void main(String[] args) {
-
         Scanner input = new Scanner(System.in);
         final int MAX_GUESSES = 8;
         String[] words = {"dog", "cat", "house", "animal", "apple", "pizza", "computer", "monitor", "mouse", "keyboard"};
@@ -13,7 +19,11 @@ public class Main {
         char userGuess;
         char continueToPlay = 'y';
         int wins = 0;
+        int losses = 0;
         String name;
+        String delimiter = "|";
+        Path score = Paths.get("C:\\Users\\d4wso\\Desktop\\Hangman\\src\\Score");
+        FileChannel fcIN = null;
 
         System.out.println("Welcome to hangman");
         System.out.println("Enter your name");
@@ -67,6 +77,7 @@ public class Main {
                 } else if (numOfGuesses == MAX_GUESSES) {
                     System.out.println("\nSorry but you suck at this");
                     System.out.println("The word was " + wordToGuess);
+                    losses++;
                     DrawMan.youLose();
                 } else {
                     System.out.println("\nYou have " + (MAX_GUESSES-numOfGuesses) + " guesses left");
@@ -79,6 +90,16 @@ public class Main {
             continueToPlay = input.next().charAt(0);
         }
 
-        System.out.println("You won " + wins + " times.");
+        System.out.println("Wins " + wins + " times.");
+
+        try {
+            fcIN = (FileChannel) Files.newByteChannel(score, CREATE, WRITE);
+            String s = "Name: " + name + " " + delimiter + " Wins: " + wins + " " + delimiter + " Losses: " + losses;
+            byte[] data = s.getBytes();
+            ByteBuffer buffer = ByteBuffer.wrap(data);
+            fcIN.write(buffer);
+        } catch (Exception e) {
+            System.out.println("Error message: " + e);
+        }
     }
 }

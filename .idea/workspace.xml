@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17921090-0262-4065-b78f-16f98016dc4f" name="Default" comment="" />
+    <list default="true" id="17921090-0262-4065-b78f-16f98016dc4f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/GetAndSet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Score" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/DrawMan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/DrawMan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +32,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CSA-Hangman-master" />
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -95,22 +102,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="808" y="410" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585225534178" />
-    <state width="914" height="281" key="GridCell.Tab.0.bottom" timestamp="1585229656301">
+    <state x="1220" y="279" key="FileChooserDialogImpl" timestamp="1585316584134">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585229656301" />
-    <state width="914" height="281" key="GridCell.Tab.0.center" timestamp="1585229656301">
+    <state x="1220" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585316584134" />
+    <state width="914" height="281" key="GridCell.Tab.0.bottom" timestamp="1585318501966">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585229656301" />
-    <state width="914" height="281" key="GridCell.Tab.0.left" timestamp="1585229656301">
+    <state width="914" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585318501966" />
+    <state width="914" height="281" key="GridCell.Tab.0.center" timestamp="1585318501966">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585229656301" />
-    <state width="914" height="281" key="GridCell.Tab.0.right" timestamp="1585229656301">
+    <state width="914" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585318501966" />
+    <state width="914" height="281" key="GridCell.Tab.0.left" timestamp="1585318501966">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585229656301" />
+    <state width="914" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585318501966" />
+    <state width="914" height="281" key="GridCell.Tab.0.right" timestamp="1585318501966">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585318501966" />
   </component>
   <component name="masterDetails">
     <states>
